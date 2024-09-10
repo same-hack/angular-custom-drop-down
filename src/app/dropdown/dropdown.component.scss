@@ -1,0 +1,56 @@
+/* ドロップダウンのボタン */
+.dropdown {
+  width: 10rem;
+}
+
+/* ドロップダウンのボタン */
+.dropdown-toggle {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 12rem;
+}
+
+/* アイコンのスタイル */
+.icon {
+  font-size: 12px;
+  margin-left: 10px;
+  pointer-events: none;
+}
+
+/* ドロップダウンメニュー */
+.dropdown-menu {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  min-width: 100%;
+  max-width: 20rem;
+}
+
+/* メニューのリンクアイテム */
+.dropdown-menu a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* リンクアイテムのホバー時 */
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}

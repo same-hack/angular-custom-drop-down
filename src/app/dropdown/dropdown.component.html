@@ -1,0 +1,16 @@
+<div class="dropdown" (click)="toggleDropdown()">
+  <button class="dropdown-toggle">
+    {{ selectedItem || "Dropdown" }}
+    <span class="icon">▽</span>
+  </button>
+  <div class="dropdown-menu" *ngIf="isOpen">
+    <a
+      *ngFor="let item of items"
+      href="#"
+      [attr.data-value]="item.value"
+      (click)="selectItem(item)"
+    >
+      {{ item.label }}
+    </a>
+  </div>
+</div>
