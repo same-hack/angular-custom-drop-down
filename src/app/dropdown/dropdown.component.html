@@ -1,16 +1,24 @@
+<!-- ドロップダウン全体のコンテナ -->
 <div class="dropdown" (click)="toggleDropdown()">
+  <!-- ドロップダウンボタン -->
   <button class="dropdown-toggle">
+    <!-- 選択されたアイテムがあれば表示、なければ"Dropdown"と表示 -->
     {{ selectedItem || "Dropdown" }}
+    <!-- ドロップダウンアイコン -->
     <span class="icon">▽</span>
   </button>
+
+  <!-- ドロップダウンメニュー。開いているときだけ表示 -->
   <div class="dropdown-menu" *ngIf="isOpen">
+    <!-- メニューアイテムをループして表示 -->
     <a
-      *ngFor="let item of items"
+      *ngFor="let item of items; let index = index"
       href="#"
-      [attr.data-value]="item.value"
-      (click)="selectItem(item)"
+      [attr.data-value]="item"
+      (click)="selectItem(index, item)"
     >
-      {{ item.label }}
+      <!-- 各アイテムのラベルを表示 -->
+      {{ item }}
     </a>
   </div>
 </div>
