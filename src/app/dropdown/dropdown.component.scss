@@ -1,6 +1,4 @@
 .dropdown {
-  color: pink;
-
   /* ドロップダウンボタン */
   .dropdown-toggle {
     padding: 10px 20px; // 内側の余白
@@ -17,10 +15,6 @@
     text-overflow: ellipsis; // テキストが長すぎる場合に省略記号を表示
     // min-width: 12rem; // ボタンの最小幅を12remに設定
     width: 100%; // 親側で設定する場合にコメント解除
-
-    .text {
-      // width: 100%;
-    }
   }
 
   /* アイコンのスタイル */
