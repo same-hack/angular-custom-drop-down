@@ -4,12 +4,16 @@ import {
   Input,
   Output,
   HostListener,
+  ViewEncapsulation,
+  ElementRef,
+  ViewChild,
 } from '@angular/core';
 
 @Component({
   selector: 'app-dropdown', // コンポーネントのセレクタ名
   templateUrl: './dropdown.component.html', // HTMLテンプレートファイル
   styleUrls: ['./dropdown.component.scss'], // CSSファイル
+  encapsulation: ViewEncapsulation.None, // これでカプセル化を無効化
 })
 export class DropdownComponent {
   /*
@@ -18,6 +22,7 @@ export class DropdownComponent {
 
     DropdownComponentを使用して、string[]のitemsを渡し、
     選択された値のindexをhandleSelectedValueで受け取る
+    ※幅は親コンポーネントの100%となる
 
     <app-dropdown
       [items]="dropdownItems"
@@ -41,20 +46,31 @@ export class DropdownComponent {
   @Output() selectedValue = new EventEmitter<number>();
 
   // ドロップダウンが開いているかどうかの状態を管理
-  isOpen = false;
+  isHidden = true;
 
   // 選択されたアイテムのラベル
   selectedItem: string | null = null;
 
+  @ViewChild('dropDown') dropDownRef!: ElementRef;
+  @ViewChild('dropDownMenu') dropDownMenuRef!: ElementRef;
+
+  ngAfterViewInit() {
+    const width = this.dropDownRef.nativeElement.offsetWidth;
+    console.log('要素の幅:', width);
+
+    // 取得した幅を別の要素に適用
+    this.dropDownMenuRef.nativeElement.style.width = `${width}px`;
+  }
+
   // ドロップダウンの表示/非表示を切り替える
   toggleDropdown() {
-    this.isOpen = !this.isOpen;
+    this.isHidden = !this.isHidden;
   }
 
   // アイテムが選択されたときに呼び出される
   selectItem(index: number, item: string) {
     this.selectedItem = item; // ボタンに表示するラベルを更新
-    this.isOpen = false; // ドロップダウンを閉じる
+    this.isHidden = false; // ドロップダウンを閉じる
     this.selectedValue.emit(index); // 選択された値を親コンポーネントに通知
   }
 
@@ -63,7 +79,7 @@ export class DropdownComponent {
   clickOutside(event: MouseEvent) {
     // クリックした要素がドロップダウン内でない場合、メニューを閉じる
     if (!(event.target as HTMLElement).closest('.dropdown')) {
-      this.isOpen = false;
+      this.isHidden = true;
     }
   }
 }

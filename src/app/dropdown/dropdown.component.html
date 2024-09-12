@@ -1,7 +1,7 @@
 <!-- ドロップダウン全体のコンテナ -->
 <div class="dropdown" (click)="toggleDropdown()">
   <!-- ドロップダウンボタン -->
-  <button class="dropdown-toggle">
+  <button class="dropdown-toggle" #dropDown>
     <!-- 選択されたアイテムがあれば表示、なければ"Dropdown"と表示 -->
     <span class="text">
       {{ selectedItem || "Dropdown" }}
@@ -11,7 +11,7 @@
   </button>
 
   <!-- ドロップダウンメニュー。開いているときだけ表示 -->
-  <div class="dropdown-menu" *ngIf="isOpen">
+  <div class="dropdown-menu" #dropDownMenu [hidden]="isHidden">
     <!-- メニューアイテムをループして表示 -->
     <div
       class="item"

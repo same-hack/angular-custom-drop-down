@@ -1,5 +1,10 @@
 <!-- DropdownComponentを使用して、itemsを渡し、選択された値をhandleSelectedValueで受け取る -->
-<app-dropdown
-  [items]="dropdownItems"
-  (selectedValue)="handleSelectedValue($event)"
-></app-dropdown>
+<div class="wrap">
+  <div id="left">
+    <app-dropdown
+      [items]="dropdownItems"
+      (selectedValue)="handleSelectedValue($event)"
+    ></app-dropdown>
+  </div>
+  <div class="right">right 50%</div>
+</div>
