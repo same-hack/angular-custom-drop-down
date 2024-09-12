@@ -1,8 +1,3 @@
-/* ドロップダウンのボタン */
-.dropdown {
-  min-width: 10rem; /* ボタンの幅を10remに設定 */
-}
-
 /* ドロップダウンボタン */
 .dropdown-toggle {
   padding: 10px 20px; /* 内側の余白 */
@@ -18,6 +13,7 @@
   overflow: hidden; /* はみ出したテキストを非表示に */
   text-overflow: ellipsis; /* テキストが長すぎる場合に省略記号を表示 */
   min-width: 12rem; /* ボタンの最小幅を12remに設定 */
+  // width: 100%; /* 親側で設定する場合にコメント解除 */
 
   .text {
     width: 100%;
