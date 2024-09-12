@@ -1,7 +1,7 @@
 <!-- ドロップダウン全体のコンテナ -->
-<div class="dropdown" (click)="toggleDropdown()">
+<div class="dropdown" #dropDown (click)="toggleDropdown()">
   <!-- ドロップダウンボタン -->
-  <button class="dropdown-toggle" #dropDown>
+  <button class="dropdown-toggle">
     <!-- 選択されたアイテムがあれば表示、なければ"Dropdown"と表示 -->
     <span class="text">
       {{ selectedItem || "Dropdown" }}
