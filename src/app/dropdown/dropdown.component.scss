@@ -1,6 +1,6 @@
 /* ドロップダウンのボタン */
 .dropdown {
-  width: 10rem; /* ボタンの幅を10remに設定 */
+  min-width: 10rem; /* ボタンの幅を10remに設定 */
 }
 
 /* ドロップダウンボタン */
@@ -12,12 +12,16 @@
   cursor: pointer; /* カーソルをポインタに */
   display: flex; /* フレックスボックスレイアウト */
   justify-content: space-between; /* アイテムの間隔を広げる */
-  align-items: center; /* 中央揃え */
+  // align-items: center; /* 中央揃え */
   background-color: transparent; /* 背景を透明に */
   white-space: nowrap; /* テキストを1行に制限 */
   overflow: hidden; /* はみ出したテキストを非表示に */
   text-overflow: ellipsis; /* テキストが長すぎる場合に省略記号を表示 */
   min-width: 12rem; /* ボタンの最小幅を12remに設定 */
+
+  .text {
+    width: 100%;
+  }
 }
 
 /* アイコンのスタイル */
@@ -39,7 +43,7 @@
 }
 
 /* メニューのリンクアイテム */
-.dropdown-menu a {
+.dropdown-menu .item {
   color: black; /* テキスト色を黒に */
   padding: 12px 16px; /* 内側の余白 */
   text-decoration: none; /* テキストの下線を削除 */
@@ -51,6 +55,6 @@
 }
 
 /* リンクアイテムにホバーしたとき */
-.dropdown-menu a:hover {
+.dropdown-menu .item:hover {
   background-color: #f1f1f1; /* 背景色を変更 */
 }
